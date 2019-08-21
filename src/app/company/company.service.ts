@@ -11,7 +11,7 @@ export class CompanyService {
   private companyRef: AngularFirestoreDocument<Company>;
 
   constructor(private db: AngularFirestore) {
-    this.companyRef = this.db.doc<Company>('companies/6niW63kpjzCXdEt28JXE');
+    this.companyRef = this.db.doc<Company>('companies/tVxbdZseYwdAcM1s8WKr');
   }
 
   getCompanyObservable(): Observable<Company> {
