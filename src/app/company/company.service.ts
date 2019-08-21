@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Company } from '../models/company';
-import { Observable } from 'rxjs';
 import { from, Observable } from 'rxjs';
 import { of } from 'rxjs/internal/observable/of';
 import { catchError } from 'rxjs/operators';
@@ -25,7 +24,7 @@ export class CompanyService {
     // this.companyRef.set(company)
     //   .then(_ => console.log('Success on set'))
     //   .catch(error => console.log('set', error));
-    from(this.companyRef.set(company))
+      from(this.companyRef.set(company))
       .pipe(
         catchError(error => {
           console.log('set', error);
