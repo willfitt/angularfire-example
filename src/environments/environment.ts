@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyDklR0IegvdD70xu8rdtp106DLyFSFDIi8',
-    authDomain: 'cohort8-a60ca.firebaseapp.com',
-    databaseURL: 'https://cohort8-a60ca.firebaseio.com',
-    projectId: 'cohort8-a60ca',
-    storageBucket: 'cohort8-a60ca.appspot.com',
-    messagingSenderId: '846841460243',
-    appId: '1:846841460243:web:a4bb555815022d96'
+    apiKey: 'AIzaSyA7hbplhcPvubrQIHye7do0hKOWh2OW4C4',
+    authDomain: 'angularfire-example-ee04f.firebaseapp.com',
+    databaseURL: 'https://angularfire-example-ee04f.firebaseio.com',
+    projectId: 'angularfire-example-ee04f',
+    storageBucket: 'angularfire-example-ee04f.appspot.com',
+    messagingSenderId: '271522597014',
+    appId: '1:271522597014:web:f5a8ba20eb39ae02'
   }
 };
 
