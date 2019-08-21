@@ -25,4 +25,8 @@ export class CompanyService {
   editCompany(company: any) {
     this.companyRef.update(company);
   }
+
+  deleteCompany() {
+    this.companyRef.delete();
+  }
 }
