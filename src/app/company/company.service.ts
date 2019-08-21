@@ -22,4 +22,7 @@ export class CompanyService {
     this.companyRef.set(company);
   }
 
+  editCompany(company: any) {
+    this.companyRef.update(company);
+  }
 }

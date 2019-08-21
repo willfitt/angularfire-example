@@ -16,10 +16,15 @@ export class CompanyEditComponent implements OnInit {
     this.company$ = this.companyService.getCompanyObservable();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   saveCompany(company) {
-    this.companyService.saveCompany(company);
+    // this.companyService.saveCompany(company);
+    this.companyService.saveCompany({name: company.name});
+
   }
 
+  editCompany(company) {
+    this.companyService.editCompany({ phone: '123-456-7890' });
+  }
 }
