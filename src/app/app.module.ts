@@ -8,11 +8,8 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule } from '@angular/material';
 import { CompanyEditComponent } from './company/company-edit/company-edit.component';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -29,9 +26,9 @@ import { FormsModule } from '@angular/forms';
     FlexLayoutModule,
     MatToolbarModule,
     MatCardModule,
-    MatFormFieldModule,
     MatInputModule,
-    FormsModule,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

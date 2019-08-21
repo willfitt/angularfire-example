@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angularfire-example": {
+    "angularfire-firestore-example": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angularfire-example",
+            "outputPath": "dist/angularfire-firestore-example",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,6 +51,11 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
                 }
               ]
             }
@@ -59,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularfire-example:build"
+            "browserTarget": "angularfire-firestore-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angularfire-example:build:production"
+              "browserTarget": "angularfire-firestore-example:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularfire-example:build"
+            "browserTarget": "angularfire-firestore-example:build"
           }
         },
         "test": {
@@ -108,16 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angularfire-example:serve"
+            "devServerTarget": "angularfire-firestore-example:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angularfire-example:serve:production"
+              "devServerTarget": "angularfire-firestore-example:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "angularfire-example"
+  "defaultProject": "angularfire-firestore-example"
 }

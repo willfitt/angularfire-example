@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angularfire-example'`, () => {
+  it(`should have as title 'angularfire-firestore-example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angularfire-example');
+    expect(app.title).toEqual('angularfire-firestore-example');
   });
 
   it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angularfire-example!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angularfire-firestore-example!');
   });
 });
