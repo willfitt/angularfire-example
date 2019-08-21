@@ -25,7 +25,7 @@ export class CompanyService {
     // this.companyRef.set(company)
     //   .then(_ => console.log('Success on set'))
     //   .catch(error => console.log('set', error));
-      from(this.companyRef.set(company))
+    from(this.companyRef.set(company))
       .pipe(
         catchError(error => {
           console.log('set', error);
