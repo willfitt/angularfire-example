@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../company.service';
 import { Observable } from 'rxjs';
-import { Company } from 'src/app/models/company';
+import { Company } from '../../models/company';
 
 @Component({
   selector: 'app-company-list',
@@ -9,13 +9,18 @@ import { Company } from 'src/app/models/company';
   styleUrls: ['./company-list.component.css']
 })
 export class CompanyListComponent implements OnInit {
-  companies$: Observable<Company[]>;
+
+  public companies$: Observable<Company[]>;
 
   constructor(private companyService: CompanyService) {
-    this.companies$ = this.companyService.getCompaniesObservable();
-   }
+  }
 
   ngOnInit() {
+    this.getCompanies();
+  }
+
+  getCompanies() {
+    this.companies$ = this.companyService.getCompaniesObservable();
   }
 
 }
