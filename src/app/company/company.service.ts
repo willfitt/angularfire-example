@@ -19,8 +19,13 @@ export class CompanyService {
     this.companiesRef = this.db.collection<Company>('companies');
   }
 
-  getCompanyObservable(): Observable<Company> {
-    return this.companyRef.valueChanges();
+  getCompanyObservable(id: string): Observable<Company> {
+    // return this.db.doc<Company>(`companies/${id}`).valueChanges();
+    return this.companiesRef.doc<Company>(id).valueChanges();
+  }
+
+  getCompaniesByEmployeeCount(numberE: number) {
+    return this.db.collection('companies', ref => ref.where('employeeCount', '>=', numberE)).valueChanges();
   }
 
    getCompaniesObservable(): Observable<Company[]> {
@@ -31,7 +36,9 @@ export class CompanyService {
             return {
               id: item.payload.doc.id,
               name: item.payload.doc.data().name,
-              phone: item.payload.doc.data().phone
+              phone: item.payload.doc.data().phone,
+              zip: item.payload.doc.data().zip,
+              employeeCount: item.payload.doc.data().employeeCount
             };
           });
         })
@@ -39,26 +46,19 @@ export class CompanyService {
   }
 
   saveCompany(company: Company) {
-    this.companyRef.set(company)
-      .then(_ => console.log('Success on set'))
-      .catch(error => console.log('set', error));
-    // from(this.companyRef.set(company))
-    //   .pipe(
-    //     catchError(error => {
-    //       console.log('set', error);
-    //       return of('Error');
-    //     })
-    //   );
+    this.companiesRef.add(company)
+      .then(_ => console.log('success on add'))
+      .catch(error => console.log('add', error));
   }
 
-  editCompany(company: any) {
-    this.companyRef.update(company)
+  editCompany(company: Company) {
+    this.companiesRef.doc(company.id).update(company)
       .then(_ => console.log('Success on update'))
       .catch(error => console.log('update', error));
   }
 
-  deleteCompany() {
-    this.companyRef.delete()
+  deleteCompany(id: string) {
+    this.companiesRef.doc(id).delete()
       .then(_ => console.log('Success on delete'))
       .catch(error => console.log('delete', error));
   }

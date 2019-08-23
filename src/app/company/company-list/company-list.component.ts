@@ -17,6 +17,7 @@ export class CompanyListComponent implements OnInit {
 
   ngOnInit() {
     this.getCompanies();
+    this.companyService.getCompaniesByEmployeeCount(1).subscribe(companies => console.log('companies', companies));
   }
 
   getCompanies() {

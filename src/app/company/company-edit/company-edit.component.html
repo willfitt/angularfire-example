@@ -1,11 +1,24 @@
-<h1>Company Edit</h1>
-<mat-card *ngIf="company$ | async as company">
-  <mat-form-field>
-    <input type="text" matInput [(ngModel)]="company.name">
-  </mat-form-field>
+<h1>{{ isEdit ? 'Edit Company' : 'Add Company'}}</h1>
+<mat-card>
+  <form *ngIf="companyFormGroup" [formGroup]="companyFormGroup" class="flex column">
+    <mat-form-field>
+      <input type="text" placeholder="Company Name" matInput formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" placeholder="Phone" matInput formControlName="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" placeholder="Zip Code" matInput formControlName="zip">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="text" placeholder="Number of Employees" matInput formControlName="employeeCount">
+    </mat-form-field>
+  </form>
   <mat-card-actions align="right">
-    <button mat-raised-button color="primary" (click)="saveCompany(company)">Save</button>
-    <button mat-raised-button (click)="editCompany(company)">Edit</button>
-    <button mat-raised-button (click)="deleteCompany()">Delete</button>
+    <button mat-raised-button color="primary" *ngIf="!isEdit" (click)="saveCompany(companyFormGroup.value)">Add</button>
+    <button mat-raised-button *ngIf="isEdit" (click)="editCompany(companyFormGroup.value)">Save</button>
+    <button mat-raised-button color="warn" (click)="deleteCompany()">Delete</button>
   </mat-card-actions>
 </mat-card>
+
+<p>{{ companyFormGroup?.value | json}}</p>
